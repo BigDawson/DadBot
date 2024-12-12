@@ -7,7 +7,7 @@ import { writeFile, unlink } from 'fs/promises';
 import { existsSync as legacyExistsSync } from 'fs';
 import { join } from 'path';
 
-const lockFilePath = join(process.cwd(), 'script.lock');
+const lockFilePath = join( import.meta.dirname, 'script.lock');
 
 // Function to clean up the lock file
 async function cleanup() {
