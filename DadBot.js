@@ -184,12 +184,18 @@ firehose.on("commit", async (commit) => {
 firehose.on("error", async function(error){
     console.log("Error");
     console.log(error);
+    // Restart the firehost?
+    firehose.close();
+    firehose.start();
 })
 
 // Hopefully unintended errors
 firehose.on("websocketError", async function(error){
     console.log("Error");
     console.log(error);
+    // Restart the firehost?
+    firehose.close();
+    firehose.start();
 })
 
 firehose.start();
