@@ -1,6 +1,7 @@
 import { Firehose } from "@skyware/firehose";
 import { BskyAgent } from '@atproto/api';
 import * as dotenv from 'dotenv';
+import * as path from 'path'
 // import * as process from 'process';
 
 import { writeFile, unlink } from 'fs/promises';
@@ -38,7 +39,7 @@ process.on('exit', cleanup);
 process.on('SIGINT', cleanup); // Handle Ctrl+C
 process.on('SIGTERM', cleanup); // Handle termination signals
 
-dotenv.config();
+dotenv.config({ path: path.join(import.meta.dirname, `/.env`)});
 
 
 // Create a Bluesky Agent 
